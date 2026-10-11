@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { profile } from "@/data/profile";
+import { ShareProfile } from "./ShareProfile";
 
 const links = [
   { href: "/#work", label: "Work" },
@@ -56,7 +57,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -68,6 +69,10 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <ShareProfile
+            variant={onDark ? "ghost-dark" : "light"}
+            label="Share profile"
+          />
           <Link
             href="/#contact"
             className={`btn !min-h-10 !px-4 !text-sm ${onDark ? "btn-on-dark" : "btn-primary"}`}
@@ -76,13 +81,18 @@ export function Header() {
           </Link>
         </nav>
 
-        <button
-          type="button"
-          className="relative h-10 w-10 md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
+        <div className="flex items-center gap-2 md:hidden">
+          <ShareProfile
+            variant={onDark ? "ghost-dark" : "light"}
+            label="Share"
+          />
+          <button
+            type="button"
+            className="relative h-10 w-10"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
           <span
             className={`absolute left-2 right-2 h-px transition-transform duration-300 ${
               open ? "top-1/2 rotate-45 bg-[var(--ink)]" : `top-[14px] ${onDark ? "bg-[#f4fff8]" : "bg-[var(--ink)]"}`
@@ -98,7 +108,8 @@ export function Header() {
               open ? "top-1/2 -rotate-45 bg-[var(--ink)]" : `top-[26px] ${onDark ? "bg-[#f4fff8]" : "bg-[var(--ink)]"}`
             }`}
           />
-        </button>
+          </button>
+        </div>
       </div>
 
       {open && (

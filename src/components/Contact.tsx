@@ -1,5 +1,6 @@
 import { profile } from "@/data/profile";
 import { Reveal } from "./Reveal";
+import { ShareProfile } from "./ShareProfile";
 
 export function Contact() {
   return (
@@ -38,6 +39,7 @@ export function Contact() {
               >
                 LinkedIn
               </a>
+              <ShareProfile variant="ghost-dark" label="Share profile" />
             </div>
           </div>
         </Reveal>
