@@ -23,16 +23,27 @@ export const metadata: Metadata = {
     template: `%s · ${profile.name}`,
   },
   description: profile.tagline,
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: `${profile.name} — ${profile.title}`,
     description: profile.tagline,
     type: "website",
     locale: "en_IN",
+    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: profile.name }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: `${profile.name} — ${profile.title}`,
     description: profile.tagline,
+    images: ["/icon-512.png"],
   },
 };
 
